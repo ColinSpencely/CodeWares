@@ -1,0 +1,16 @@
+function longest($a, $b) {
+  $newA = StringToArray($a);
+  $newB = StringToArray($b);
+  $super = array_merge($newA, $newB);
+  print_r($super);
+}
+
+function StringToArray($string) {
+  $newArray = array();
+  
+  for ($i = 0; $i < strlen($string); $i++) {
+    array_push($newArray, $string[$i]);
+  }
+  print_r($newArray);
+  return $newArray;
+}
