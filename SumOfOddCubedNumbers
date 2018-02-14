@@ -1,0 +1,25 @@
+// Function takes an array as an argument.
+// Array may be mixed - there are no guarantees as to data type.
+// If an element is not numeric, return NULL.
+// Otherwise, cube the element value and then sum all elements that have odd values.
+// Return the sum.
+function cube_odd($a) {
+  $sum = 0; // Holds the running sum.
+  
+  // Loop through the array...
+  for ($i = 0; $i < count($a); $i++) {
+    // And do a check to see if the element is not numeric...
+    if (!is_numeric($a[$i])) {
+      return NULL; // Not a number -> return NULL.
+    }
+    
+    $a[$i] = pow($a[$i], 3); // Cube remaining elements.
+    print_r("Value: " . $a[$i] . "\n"); 
+    // Odd value check...
+    if ($a[$i] % 2 !== 0) { 
+      $sum += $a[$i]; // If odd, add value to running sum.
+    }
+  }
+  print_r("End\n");
+  return $sum; // Return the running sum.
+}
