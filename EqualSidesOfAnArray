@@ -1,37 +1,25 @@
 // Function takes an array of integers as an argument.
 // Function returns the index at which the the sum of the integers to the left and right of the index are equal.
 // If this index does not exit, return -1.
-function findEvenIndex(arr)
-{
-  var leftHandSum = 0; // Holds left hand sum.
-  var rightHandSum = 0; // Holds right hand sum.
-  var equal = false; // Is set if current comparison of the sums is equal.
-  var trueOnce = false; // Is set if the left hand and right hand sums are equal once.
-  var index = 0; // The index to be returned.
-  
-  // Start looping...
-  for (var i = 0, j = arr.length - 1; i <= j; i++, j--) {
-    leftHandSum += arr[i]; // Build the sum starting from the left.
-    rightHandSum += arr[j]; // Build the sum starting from the right.
+function findEvenIndex(arr) {
+  var sum = 0; // Holds the usm.
+  var leftSum = 0; // Holds the left hand sum.
+
+  // Loop through to calculate the sum of all integers in array.
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  // Loop through and subtract the current element value from the calculated sum.
+  for (var i = 0; i < arr.length; i++) {
+    sum -= arr[i];
+
+    // If the sum is zeroed out and equal to left sum...
+    if (leftSum === sum) {
+      return i; // Return the index.
+    }
     
-    // When left hand and right hand sum are equal...
-    if (leftHandSum == rightHandSum) {
-      equal = true; // Current sums aere equal.
-      trueOnce = true; // Equality found at least once.
-      index = i; // Store the current index.
-    }
-    // The sums are not equal.
-    else {
-      // If they were equal last run...
-      if (equal) {
-        index = i; // Store the current index.
-      }
-      equal = false; // Current comparison of sums is not equal.
-    }
+    leftSum += arr[i]; // Else, increase the value of left sum by the value of the current element.
   }
-  // If equality between sums was not found at least once...
-  if (!trueOnce) {
-    return -1; // Return -1 - the index doesn't exist.
-  }
-  return index; // Return the index.
+  return -1; // Index wasn't found.
 }
