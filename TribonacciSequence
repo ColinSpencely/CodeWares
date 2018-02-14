@@ -1,0 +1,34 @@
+// Function takes an integer array (numbers) and an integer (number of terms) as arguments.
+// Function determines tribonacci sequence and adds results to original array.
+// Function returns an array of length equal to the number of terms passed in as an argument.
+function tribonacci($signature, $n) {
+  // Edge case of 0.
+  // Return an empty array.
+  if ($n === 0) {
+    $signature = array();
+    return $signature;
+  }
+  // Edge case of 1.
+  // Return an array with the first term found in signature array.
+  if ($n === 1) {
+    return array($signature[0]);
+  }
+ 
+  $tempSum = 0; // Holds temporary sum.
+  $i = 0; // Index used in while loop.
+  $nCopy = $n; // Saves original value of number of terms to return.
+  
+  // Loop an amount of times equal to the number of terms parameter.
+  while ($n > 0) {
+    // Break loop if the number of terms in the array is equal to the original number of terms requested.
+    if (count($signature) == $nCopy) {
+      break;
+    }
+    $tempSum = $signature[$i] + $signature[$i + 1] + $signature[$i + 2]; // Calculate temporary sum.
+    array_push($signature, $tempSum); // Push temporary sum into array.
+    $tempSum = 0; // Reset temporary array for next run.
+    $i++; // Increment the index.
+    $n--; // Decrement the number of terms.
+  }
+  return $signature;
+}
