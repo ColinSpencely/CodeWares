@@ -1,0 +1,26 @@
+// Function takes an operator character and two integer operands.
+// Function performs the requested calculation and returns the result.
+function basicOp($op, $val1, $val2)
+{
+  $result = 0; // Holds the result.
+  
+  // Switch is based on the supplied operator. 
+  switch ($op) {
+    case '+':
+      $result = $val1 + $val2;
+      break;
+    case '-':
+      $result = $val1 - $val2;
+      break;
+    case '*':
+      $result = $val1 * $val2;
+      break;
+    case '/':
+      $result = $val1 / $val2;
+      break;
+    default:
+      $result = "Something is rotten in the state of Denmark.";
+      break;
+  }
+  return $result;
+}
