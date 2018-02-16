@@ -1,0 +1,25 @@
+// Function takes three int arguments:
+// The beginning of the sequence, the end of the sequence, and the step size.
+// Function will return the sum of the sequence.
+function sequence_sum(int $begin, int $end, int $step): int {
+  // Check to see if the beginning of the sequence is larger than the end of the sequence.
+  if ($begin > $end) {
+    return 0;
+  }
+  
+  // If the beginning and the end are the same...
+  if ($begin === $end) {
+    return $begin; // Return the beginning value.
+  }
+  
+  echo "$begin, $end, $step\n";
+  
+  $sum = 0; // Will hold the sum of all elements in the sequence.
+  
+  // Start at the sequence beginning and loop through to the end...
+  for ($i = $begin; $i <= $end; $i += $step) {
+    $sum += $i; // Add each number to the sum.
+  }
+  
+  return $sum;
+}
