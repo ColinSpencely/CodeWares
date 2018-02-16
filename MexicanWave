@@ -1,0 +1,25 @@
+// Function takes a string as an argument.
+// Function then moves an uppercase letter through the string - it's the crest.
+// Function returns an array consisting of every iteration of the string showing the moving crest/
+function wave($people){
+  // If the string is empty, return an empty array.
+  if ($people == "") {
+    return array();
+  }
+  
+  $response = array(); // Holds all the strings.
+  $wave = str_split($people); // String to array.
+  $originalArray = $wave; // Save the original array for resets in the loop.
+  
+  // Iterate through the array of characters...
+  for ($i = 0; $i < strlen($people); $i++) {
+    $wave = $originalArray; // Reset the array to the original array.
+    // If there is whitespace, continue to next iteration.
+    if ($wave[$i] == " ") {
+      continue;
+    }
+    $wave[$i] = strtoupper($wave[$i]); // Change the current letter to uppercase.
+    array_push($response, join($wave)); // Push string into response array.
+  }
+  return $response;
+}
