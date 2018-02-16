@@ -1,0 +1,14 @@
+// Function takes a population zero int, percent population growth int, people leaving/arriving int,
+// and a target population to be exceeded int.
+// Function determines how many years it will take for population to exceed the target population.
+// Function returns the number of years it should take for the population to exceed the target population.
+function nbYear($p0, $percent, $aug, $p) {
+  $years = 0; // Holds the number of years.
+  
+  // While population hasn't exceeded target population...
+  while ($p0 < $p) {
+    $p0 += $p0 * ($percent / 100) + $aug; // Calculate population growth for year.
+    $years++; // Increment year count.
+  }
+  return $years; // Return year count.
+}
