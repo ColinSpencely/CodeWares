@@ -1,0 +1,6 @@
+// Function takes a string as an argument.
+// Function returns a modded string (first letter of each word uppercase).
+function toJadenCase($string) 
+{
+   return ucwords($string, " "); // Capitalizes the first letter of each word in string.
+}
