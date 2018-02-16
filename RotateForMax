@@ -1,0 +1,24 @@
+// Function takes an integer as an argument.
+// Function rotates digits.
+// Function returns the largest integer that occurs as a result of the rotation.
+function maxRot($n) {
+    $numString = strval($n); // Number to string.
+    $rotateArray = str_split($numString); // String to array.
+    $max = 0; // Will hold max value.
+    
+    // Iterate through the array...
+    for ($i = 0; $i < count($rotateArray); $i++) {
+      $staticArray = array_slice($rotateArray, 0, $i); // Keeps elements from 0 to $i intact - no shifting.
+      $shiftyArray = array_slice($rotateArray, $i); // Array slice to be shifted.
+      $saveIt = array_shift($shiftyArray); // Shift the first value off of the shift array.
+      array_push($shiftyArray, $saveIt); // And push that shifted value onto the end of the shift array.
+      $rotateArray = array_merge($staticArray, $shiftyArray); // Merge the static and shift arrays.
+      $finalAnswer = floatval(join($rotateArray)); // Get float value of the final shifted array.
+      
+      // Test for max...
+      if ($finalAnswer >= $max) {
+        $max = $finalAnswer;
+      }
+    }
+    return $max;
+}
