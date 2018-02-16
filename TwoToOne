@@ -19,5 +19,5 @@ function StringToArray($string) {
   for ($i = 0; $i < strlen($string); $i++) {
     array_push($newArray, $string[$i]);
   }
-  return $newArray; // Send new array back to calling function.
+  return $newArray; // Send new array back to calling function. 
 }
