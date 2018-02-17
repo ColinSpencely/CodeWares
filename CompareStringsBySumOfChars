@@ -1,0 +1,36 @@
+// Function takes two strings as arguments.
+// Strings are compared by the sums of their ASCII values.
+// Return true if sums are equal, false otherwise. 
+function compare($s1, $s2) {
+  // If there are characters other than letters in a string, the string is treated as empty.
+  if (!ctype_alpha(strtoupper($s1))) {
+    $s1 = "";
+  }
+  if (!ctype_alpha(strtoupper($s2))) {
+    $s2 = "";
+  }
+  // Check for empty strings or null strings.
+  if ($s1 == "" || $s1 == null && $s2 == "" || $s2 == null) {
+    return true;
+  }
+  
+  $sum1 = 0;
+  $sum2 = 0;
+  
+  // Get sum of s1.
+  for ($i = 0; $i < strlen($s1); $i++) {
+    $sum1 += ord(strtoupper($s1[$i]));
+  }
+  // Get sum of s2.
+  for ($i = 0; $i < strlen($s2); $i++) {
+    $sum2 += ord(strtoupper($s2[$i]));
+  }
+  
+  // Check if equal
+  if ($sum1 == $sum2) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
