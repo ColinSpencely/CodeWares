@@ -1,0 +1,25 @@
+// Function takes a positive int as an argument.
+// Function returns an int representing its multiplicative persistence.
+function persistence(int $num): int {
+  // Number is already one digit.
+  if ($num < 9) {
+    return 0;
+  }
+  
+  $product = 1; // Will hold temporary product.
+  $count = 0; // This count is the multiplicative persistence.
+  
+  // Loop until the number is down to one digit.
+  while ($num > 9) {
+    $count++; // Add one to multiplicative persistence.
+    $numArray = str_split(strval($num)); // Separate digits of number into array.
+    
+    // Iterate through each digit.
+    for ($i = 0; $i < count($numArray); $i++) {
+      $product *= intval($numArray[$i]); // Calculate running product.
+    }
+    $num = $product; // Save value of product.
+    $product = 1; // Reset product.
+  }
+  return $count;
+}
