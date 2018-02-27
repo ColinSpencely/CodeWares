@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public static class Kata
+{
+  // Method takes a space-separated string of numbers as an argument.
+  // Method determines the biggest and largest numbers in the string.
+  // Method returns a string consisting of the biggest and smallest numbers separated by a space.
+  public static string HighAndLow(string numbers)
+  {
+    List<int> numberList = new List<int>(); // Storage for parsed numbers.
+    string tempNum = ""; // Used to build intermediate number string.
+    string response = ""; // Used to build response.
+    
+    // Loop through all characters in the string...
+    for (int i = 0; i < numbers.Length; i++)
+    {
+      // If character is a digit or a negative sign...
+      if (Char.IsDigit(numbers[i]) || numbers[i].Equals('-'))
+      {
+        tempNum += numbers[i]; // Add it to the tempNum string.
+      }
+      // If character is a space or is the last character in the string...
+      if (numbers[i].Equals(' ') || i == numbers.Length - 1)
+      {
+        int value = 0; // Holds the int after parsing tempNum.
+        bool result = Int32.TryParse(tempNum, out value); // Tries to parse tempNum into an int.
+        
+        // If true, value now contains an int representation of the tempNum string.
+        if (result)
+        {
+          numberList.Add(value); // Add to the numbers list.
+          tempNum = ""; // "Zero out" the tempNum string.
+        }
+      }
+    }
+    
+    response = numberList.Max() + " "; // Find the max.
+    response += numberList.Min(); // Find the min.
+    return response;
