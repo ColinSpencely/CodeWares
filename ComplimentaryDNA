@@ -1,0 +1,37 @@
+using System;
+
+public class DnaStrand 
+    {
+        // Method takes a DNA string as an argument.
+        // Method returns the complimentary DNA string.
+        public static string MakeComplement(string dna)
+        {
+            string newDNA = ""; // Holds the complimentary DNA.
+            
+            // Loop through each letter in the DNA string.
+            for (int i = 0; i < dna.Length; i++) 
+            {
+              // Switch on the letter and find compliment and append the compliment to the 
+              // newDNA string.
+              switch (dna[i]) 
+              {
+                case 'A':
+                  newDNA += 'T';
+                  break;
+                case 'T':
+                  newDNA += 'A';
+                  break;
+                case 'C':
+                  newDNA += 'G';
+                  break;
+                case 'G':
+                  newDNA += 'C';
+                  break;
+                default:
+                  newDNA = "Something is rotten in the state of Denmark.";
+                  break;
+              }
+            }
+            return newDNA;
+        }
+    }
