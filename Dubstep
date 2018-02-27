@@ -1,0 +1,16 @@
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+public class Dubstep
+{
+  // Method takes a dubstep-encoded string as input.
+  // Method returns a decrypted string.
+  public static string SongDecoder(string input)
+  { 
+    // First, remove "WUB" and replace with a space.
+    // Then, use regex to remove multiple spaces between words.
+    // Finally, trim leading and trailing whitespace.
+    return Regex.Replace(input.Replace("WUB", " "), @"\s+", " ").Trim();
+  }
+}
