@@ -1,0 +1,19 @@
+using System;
+
+public static class Kata
+{
+  // Function takes a string as an argument.
+  // Function reverses the string.
+  // Function returns reversed string.
+  public static string Solution(string str) 
+  {
+    string reverse = ""; // Holds reversed string.
+    
+    // Start at the end and move forwards towards the start.
+    for (int i = str.Length - 1; i >= 0; i--) 
+    {
+      reverse += str[i]; // Append the current letter to reverse.
+    }
+    return reverse;
+  }
+}
