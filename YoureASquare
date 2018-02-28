@@ -1,0 +1,20 @@
+using System;
+
+public class Kata
+{
+  // Function takes an int argument.
+  // Function determines whether n is a perfect square.
+  // Function returns a bool - true if a perfect square, false otherwise.
+  public static bool IsSquare(int n)
+  {
+    double root = Math.Sqrt(n); // Take the root of the number.
+    int truncatedRoot = (int)root; // Truncate the numbers after the decimal point.
+    
+    // After subtraction, if there is a fractional remainder and the result is not 0 or the number is negative.
+    if ((root - truncatedRoot < 1 && root - truncatedRoot != 0) || n < 0) 
+    {
+      return false; 
+    }
+    return true;
+  }
+}
