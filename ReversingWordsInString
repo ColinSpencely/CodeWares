@@ -1,0 +1,7 @@
+// Function takes a string argument.
+// Function breaks the string into separate words.
+// Function then reverses word order and returns a new string built from array.
+function reverse($string) {
+  $newArray = array_reverse(explode(" ", $string));
+  return implode(" ", $newArray);
+}

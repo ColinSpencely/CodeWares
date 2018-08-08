@@ -1,0 +1,18 @@
+// Function takes two arrays of integers.
+// Functions squares the elements of the first array and compares the two arrays.
+// Function returns true if the arrays are the same, false otherwise.
+function comp($a1, $a2) {
+  $same = true; // Flag for element equality.
+  sort($a1); // Sort array.
+  sort($a2); // Sort array.
+    
+  // Loop through elements of array...  
+  for ($i = 0; $i < count($a1); $i++) {
+    $a1[$i] = pow($a1[$i], 2); // Square all elements in first array.
+    // Compare elements of first array to elements in second array...
+    if ($a1[$i] != $a2[$i]) {
+      $same = false; // If not equal, set flag to false.
+    }
+  }
+  return $same;
+}

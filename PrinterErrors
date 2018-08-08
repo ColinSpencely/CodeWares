@@ -1,0 +1,15 @@
+// Function takes a string as an argument.
+// Function counts the number of characters greater than m - these are errors.
+// Function returns a fraction of the errors compared to the length of the string.
+function printerError($s) {
+  $errorCount = 0; // Holds the error count.
+  
+  // Iterate through all characters in the string...
+  for ($i = 0; $i < strlen($s); $i++) {
+    // If a character is greater than 'm', count it as an error.
+    if ($s[$i] > 'm') {
+      $errorCount++;
+    }
+  }
+  return $errorCount . "/" . strlen($s); // Build the fraction and return it.
+}

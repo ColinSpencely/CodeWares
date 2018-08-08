@@ -1,0 +1,23 @@
+// Function accepts an integer passed by reference.
+// Function doubles the initial value of the argument and saves it to memory.
+// No return value - Passing by reference.
+function double(&$n) 
+{
+  $n *= 2; // Double the parameter.
+}
+
+// Function accepts an integer passed by reference.
+// Function halves the value of the argument and saves it to memory.
+// No return value - Passing by reference.
+function halve(&$n)
+{
+  $n /= 2; // Halve the argument.
+}
+
+// Function accepts an integer passed by reference and an integer passed by value.
+// Integer passed by reference will be modified by the second integer acting as a scale.
+// No return value - Passing by reference.
+function enlarge(&$x, $n)
+{
+  $x *= $n; // Multiply the value by the scale.
+}

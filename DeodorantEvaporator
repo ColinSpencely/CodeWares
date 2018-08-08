@@ -1,0 +1,16 @@
+// Function takes three ints as arguments.
+// Current content of the evaporator, evaporation per day, and threshold where the evaporator is not useful.
+// Function returns the day when the evaporator will be out of use.
+function evaporator($content, $evap_per_day, $threshold) {
+    $evap_per_day /= 100; // Switch to percentage.
+    $threshold /= 100; // Switch to percentage.
+    $originalContent = $content; // Keep copy of origint.nal content value.
+    $days = 0; // Will hold operational days.
+    
+    // As long as the content is above the threshold.
+    while ($content > $originalContent * $threshold) {
+      $content = $content - ($evap_per_day * $content); // Calculate new content.
+      $days++; // Increment operation day count.
+    }
+    
+    return $days;

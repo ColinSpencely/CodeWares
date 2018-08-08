@@ -1,0 +1,50 @@
+function timeCorrect($timestring) {
+    echo $timestring;
+    if ($timestring === null) {
+      return null;
+    }
+    else if ($timestring === "") {
+      return "";
+    }
+    
+    if (preg_match('/\d\d[:]\d\d[:]\d\d/', $timestring) === 0) {
+      return null;
+    }
+    
+    $timeArray = explode(':', $timestring);
+    
+    $timeArray = FixTime($timeArray);
+    
+    var_dump($timeArray);
+    
+    return join(':', $timeArray);
+}
+
+function FixTime($time) {
+  $carry = 0;
+  if ($time[2] >= 60) {
+    $original = $time[2];
+    $time[2] = strval($original - 60); 
+    $time[1] += 1;
+  }
+  if ($time[1] >= 60) {
+    $original = $time[1];
+    $time[1] = strval($original - 60); 
+    $time[0] += 1;
+  }
+  
+  if ($time[0] >= 24) {
+    while ($time[0] >= 24) {
+      $time[0] -= 24;
+    }
+  }
+  
+  if (strlen($time[0]) < 2) {
+    $time[0] = '0' . strval($time[0]);
+  }
+  else {
+    $time[0] = strval($time[0]);
+  }
+  
+  return $time;
+}

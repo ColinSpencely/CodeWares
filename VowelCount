@@ -1,0 +1,16 @@
+// Function takes a string as an argument.
+// Function returns the number of vowels found in the string.
+function getCount($str) {
+  $vowelsCount = 0; // Holds the vowel count.
+  $vowels = ['a', 'e', 'i', 'o', 'u']; // Vowels.
+  
+  // Iterate through each character in the string...
+  for ($i = 0; $i < strlen($str); $i++) {
+    // Check if the character from the string is in the vowels array.
+    if (in_array($str[$i], $vowels)) {
+      $vowelsCount++; // If it is, count the vowel.
+    }
+  }
+  
+  return $vowelsCount; // Send the answer back to calling function.
+}

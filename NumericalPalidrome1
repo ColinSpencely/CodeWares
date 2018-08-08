@@ -1,0 +1,29 @@
+// Function takes a number as a string.
+// Function determines if number is a numerical palindrome - 1221 is a numerical palindrome.
+// Return true if number is numerical palindrome.
+// Return false if not.
+// Return "Not valid" if number is a string or the number is less than 0.
+function palindrome($num) {
+  // Check if number is negative or if it is a string...
+  if ($num < 0 || is_string($num)) {
+    return "Not valid";
+  }
+
+  $numbers = []; 
+  
+  // Loop...
+  while ($num > 0) {
+    $digit = $num % 10; // Peel off LCD.
+    array_push($numbers, $digit);  
+    $num /= 10; // Reduce number.
+    $num = intval($num);
+  }
+  
+  $numString = implode($numbers); // Array to string.
+  
+  // Check if the number string is identical backwards and forwards.
+  if ($numString === strrev($numString)) {
+    return true;
+  }
+  return false;
+}

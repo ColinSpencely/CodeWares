@@ -1,0 +1,58 @@
+// Function takes two string arguments.
+// One argument is an address list.
+// The other argument is a zipcode.
+// Function returns a string containing all addresses in the zipcode.
+function travel($r, $zipcode) {
+  // Check to see if $zipcode is set...
+  if (!isset($zipcode) || $zipcode == "") {
+    return ":/";
+  }
+  // Check to see if zipcode is in proper format.
+  if (strlen($zipcode) != 8) {
+    return "$zipcode:/";
+  }
+  $allAddressArray = explode(",", $r); // Build array where each address is a separate element.
+  $result = "$zipcode:"; // Start builkding result string.
+  $foundOnce = false; // Flag - set if one result is found.
+  $numberArray = array(); // Will hold numbers from addresses.
+  
+  // Loop through each address...
+  for ($i = 0; $i < count($allAddressArray); $i++) {
+    // Check to see if zipcode is in address.
+    if (strpos($allAddressArray[$i], $zipcode)) {
+      $foundOnce = true; // Set the flag
+      $choppedAddress = substr($allAddressArray[$i], 0, strlen($allAddressArray[$i]) - 9); // Chop zipcode off.
+      $end = 0; 
+      // Find the end of the street number...
+      for ($j = 0; $j < strlen($choppedAddress); $j++) {
+        if ($choppedAddress[$j] === " ") {
+          $end = $j; 
+          break;
+        }
+      }
+      $number = substr($choppedAddress, 0, $end); // Get street number.
+      array_push($numberArray, $number); // Push street number away for safekeeeping.
+      $choppedAddress = substr($choppedAddress, $end + 1); // Get street name.
+      $result .= "$choppedAddress,"; // Append address to result string.
+    }
+  }
+  // Found at least one address that matches.
+  if ($foundOnce) {
+    $result = substr($result, 0, strlen($result) - 1); // Chop off last comma.
+    $result .= "/"; // Add forward slash to the end of result.
+    // Append street numbers to result.
+    for ($i = 0; $i < count($numberArray); $i++) {
+      // The last address gets no comma.
+      if ($i == count($numberArray) - 1) {
+        $result .= $numberArray[$i];
+      }
+      // Otherwise, add a comma after each street number.
+      else {
+        $result .= $numberArray[$i] . ",";
+      }
+    }
+    return $result;
+  }
+  // Didn't find a match...
+  return "$result/";
+}

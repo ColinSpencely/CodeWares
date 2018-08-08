@@ -1,0 +1,25 @@
+// Function takes a string as an argument.
+// Function extracts numbers from the string and returns the sum of the integers.
+function sum_of_integers_in_string(string $s): int {
+  $sum = 0; 
+  $tempNum = ""; 
+  
+  // Loop through each character in string.
+  for ($i = 0; $i < strlen($s); $i++) {
+    // If it's a number...
+    if (ctype_digit($s[$i])) {
+      $tempNum .= $s[$i]; // Transfer the number to temporary storage.
+    }
+    // If it's not a number...
+    else {
+      $tempNum .= " "; // Throw a space into temporary storage.
+    }
+  }
+  $numArray = explode(" ", $tempNum); // Build an array out of the temporary storage string.
+  
+  // Loop through each element in the array.
+  for ($i = 0; $i < count($numArray); $i++) {
+    $sum += intval($numArray[$i]); // Do a running sum on the integers.
+  }
+  return $sum;
+}

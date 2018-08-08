@@ -1,0 +1,37 @@
+// Function takes two string arrays as arguments.
+// The first is a stocklist giving book categories and counts.
+// The second is a list of categories.
+// Function will return a string consisting of the books in each category.
+function stockList($listOfArt, $listOfCat){
+  $item = []; // Will store a row including categoryand count.
+  $results = []; // Holds results array.
+  
+  // If either parameter is empty, return an empty string.
+  if (count($listOfArt) == 0 || count($listOfCat) == 0) {
+    return '';
+  }
+  
+  // Builds an associative array where category is the key.
+  for ($i = 0; $i < count($listOfCat); $i++) {
+    $results[$listOfCat[$i]] = 0;
+  }
+  
+  // Loop through each entry in the stocklist.
+  for ($i = 0; $i < count($listOfArt); $i++) {
+    $item = explode(" ", $listOfArt[$i]); // Explode each entry into the book code and count.
+    
+    // Check to see if first letter of book code is a key in the associative categor array.
+    if (in_array($item[0][0], $listOfCat)) {
+      $results[$item[0][0]] += intval($item[1]); // If yes, add the count to the value in the associative array.
+    }
+  }
+  
+  $answer = ""; // Answer string.
+  
+  // Loop through each key value pair in the associative array.
+  foreach($results as $key => $value) {
+    $answer .= "($key : $value) - "; // Add item - book code and count.
+  }
+  $answer = substr($answer, 0, -3); // Cut the last hyphen off of the answer.
+  return $answer;
+}

@@ -1,0 +1,23 @@
+// Function takes two strings as arguments.
+// Function returns a sorted string containing all distinct characters from both strings.
+function longest($a, $b) {
+  $newA = StringToArray($a); // Convert string to array.
+  $newB = StringToArray($b); // convert string to array.
+
+  $super = array_merge($newA, $newB); // Merge both arrays into one.
+  $uniqueArray = array_unique($super); // Get all distinct characters from merged array.
+  sort($uniqueArray); 
+  $response = implode($uniqueArray); // Array to string.
+  return $response; 
+}
+
+// Function converts a string of characters into a character array.
+function StringToArray($string) {
+  $newArray = array(); // Will hold the newly-created array.
+  
+  // Iterate through each character and push the character into an array.
+  for ($i = 0; $i < strlen($string); $i++) {
+    array_push($newArray, $string[$i]);
+  }
+  return $newArray; // Send new array back to calling function. 
+}
