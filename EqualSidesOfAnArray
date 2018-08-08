@@ -1,0 +1,25 @@
+// Function takes an array of integers as an argument.
+// Function returns the index at which the the sum of the integers to the left and right of the index are equal.
+// If this index does not exit, return -1.
+function findEvenIndex(arr) {
+  var sum = 0; // Holds the usm.
+  var leftSum = 0; // Holds the left hand sum.
+
+  // Loop through to calculate the sum of all integers in array.
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  // Loop through and subtract the current element value from the calculated sum.
+  for (var i = 0; i < arr.length; i++) {
+    sum -= arr[i];
+
+    // If the sum is zeroed out and equal to left sum...
+    if (leftSum === sum) {
+      return i; // Return the index.
+    }
+    
+    leftSum += arr[i]; // Else, increase the value of left sum by the value of the current element.
+  }
+  return -1; // Index wasn't found.
+}

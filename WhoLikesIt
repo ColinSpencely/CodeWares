@@ -1,0 +1,25 @@
+// Function takes an array of strings as an argument.
+// Function returns a string based on how many string are in the array.
+function likes(names) {
+  var response = ""; // Will hold the response.
+  
+  // Switch statement is based on the number of elements in the array.
+  switch (names.length) {
+    case 0:
+      response = "no one likes this";
+      break;
+    case 1:
+      response = names[0] + " likes this";
+      break;
+    case 2:
+      response = names[0] + " and " + names[1] + " like this";
+      break;
+    case 3:
+      response = names[0] + ", " + names[1] + " and " + names[2] + " like this";
+      break;
+    default:
+      response = names[0] + ", " + names[1] + " and " + (names.length - 2) + " others like this";
+      break;
+  }
+  return response;
+}

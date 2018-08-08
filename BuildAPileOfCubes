@@ -1,0 +1,16 @@
+// Function takes an integer (volume of pile).
+// Function returns the number of cubes needed to build the pile.
+function findNb(m) {
+  var n = 0;
+  var volume = 0; 
+  // Keep incrementing volume by the cube of n.
+  while(volume < m) {
+    n++;
+    volume += Math.pow(n, 3);
+   }
+   // If volume isn't exactly equal to the volume of the pile, then n doesn't exist.
+   if (volume != m) {
+     return (-1);
+   }
+   return n; // Send back the answer.
+}
