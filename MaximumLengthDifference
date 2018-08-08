@@ -1,0 +1,34 @@
+using System;
+
+public class MaxDiffLength 
+{
+    // Method takes two string arrays as arguments.
+    // Method determines the maximum length difference found between the two arrays.
+    // Method returns the maximum difference.
+    public static int Mxdiflg(string[] a1, string[] a2) 
+    {
+        int maxDiff = 0; // Holds max difference.
+        
+        // If either array is empty...
+        if (a1.Length == 0 || a2.Length == 0)
+        {
+          return -1;
+        }
+        
+        // Loop through each string in the first array.
+        for (int x = 0; x < a1.Length; x++) 
+        {
+          // Then loop through each string in the second array.
+          for (int y = 0; y < a2.Length; y++)
+          {
+            // If the length difference is bigger than the the current max difference.
+            if (Math.Abs(a1[x].Length - a2[y].Length) > maxDiff)
+            {
+              maxDiff = Math.Abs(a1[x].Length - a2[y].Length); // Assign the new difference as the max difference.
+            }
+          }
+        }
+        return maxDiff;
+        
+    }
+}

@@ -1,0 +1,15 @@
+using System.Linq;
+
+namespace Solution
+{
+  public static class ArraysInversion
+  {
+    // Method takes an array of integers as an argument.
+    // Method modifies the array so that ints become their additive inverses.
+    // Method returns modified array.
+    public static int[] InvertValues(int[] input)
+    {
+      return input.Select(n => -n).ToArray();
+    }
+  }
+}

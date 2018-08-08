@@ -1,0 +1,19 @@
+using System;
+using System.Linq;
+
+public class Kata
+{
+  // Method takes an int array as an argument.
+  // Method returns the smallest int in the array.
+  public int Min(int[] list)
+  {
+    return list.Min();
+  }
+  
+  // Method takes an int array as an argument.
+  // Method returns the largest int in the array.
+  public int Max(int[] list)
+  {
+    return list.Max();
+  }
+}
